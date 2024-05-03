@@ -1,0 +1,125 @@
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logo img {
+    width: 150px; 
+    height: auto; 
+}
+
+body, form {
+    margin: 0;
+    padding: 0;
+    position: center;
+}
+
+/* Container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EED8AF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login_form {
+    text-align: center;
+    max-width: 400px; /* Adjusted max-width */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Form */
+form {
+    background-color: #6C8BDB;
+    border-radius: 50px;
+    margin-bottom: 100px;
+    margin-top: 120px;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    padding: 40px;
+    position: relative; /* Position the form relative */
+}
+
+/* Form fields */
+div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 11px;
+    color: #fff;
+}
+
+/* Style for the "Sign Up" word */
+.signup-title {
+    font-size: 32px; /* Adjusted font size */
+    color: #fff; /* Font color set to white */
+    margin-bottom: 20px; /* Added margin-bottom */
+}
+
+
+/* Style for the container of name inputs */
+.name-inputs {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Add space between elements */
+}
+
+/* Style for each name input container */
+.name-inputs > div {
+    flex: 1; /* Equal width for both name input containers */
+    margin-right: 10px; /* Add margin between elements */
+}
+
+
+/* Style for input fields */
+.name-inputs input[type="email"],
+.name-inputs input[type="password"],
+.name-inputs input[type="texts"] {
+    width: calc(100% - 22px); /* Adjusted width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: calc(100% - 22px); /* Adjusted width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+
+
+/* Sign Up button */
+.signup-button {
+    width: 120px; /* Adjusted button width */
+    padding: 10px;
+    background-color: #6bff72;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute; /* Position the button absolutely */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.signup-button:hover {
+    background-color: #ebff88;
+}

@@ -1,0 +1,70 @@
+/* styles.css */
+
+/* Apply styles to the heading */
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Apply styles to the form */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+/* Style for the container of name inputs */
+.name-inputs {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Add space between elements */
+}
+
+/* Style for each name input container */
+.name-inputs > div {
+    flex: 1; /* Equal width for both name input containers */
+    margin-right: 10px; /* Add margin between elements */
+}
+
+/* Style for labels */
+.name-inputs label {
+    display: block; /* Display labels as blocks */
+}
+
+/* Style for input fields */
+.name-inputs input[type="text"] {
+    width: 100%; /* Take up full width */
+    padding: 8px; /* Adjust padding as needed */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-top: 5px; /* Add margin on top */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 3px; /* Add border radius */
+}
+
+
+
+/* Apply styles to form input fields */
+input[type="text"],
+input[type="password"] {
+    width: 50px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Apply styles to the Sign Up button */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}

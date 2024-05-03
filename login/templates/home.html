@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Panel</title>
+  <link rel="stylesheet" href="/static/hdraft.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="top">
+      <div class="logo">
+        <img src="/static/dashboardIcons/logosvg.svg" class="logosvg">
+      </div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <div class="user">
+      <img src="/static/dashboardIcons/cat.svg" alt="me" class="catsu">
+      <div>
+        <p class="bold">AGK</p>
+        <p>Founder</p>
+      </div>
+    </div>
+    <ul>
+      <li>
+        <a href="#">
+          <i class='bx bxs-dashboard' style='color:#ffffff'></i>
+          <span class="nav-item">Board</span>
+        </a>
+        <span class="tooltip">Board</span>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class='bx bx-detail'></i>
+          <span class="nav-item">Document</span>
+        </a>
+        <span class="tooltip">Document</span>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class='bx bx-trash'></i>
+          <span class="nav-item">Archive</span>
+        </a>
+        <span class="tooltip">Archive</span>
+      </li>
+    </ul>
+    <div class="nav-item">
+      <a href="{% url 'logout' %}">
+        <i class='bx bx-log-out' style='color:#ffffff'></i>
+        <span class="nav-item">Logout</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="container">
+      <h1>Hello {{ request.user.first_name }}!</h1>
+      <h1>This is team AGK!</h1>
+    </div>
+  </div>
+
+  <script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+
+    btn.onclick = function () {
+      sidebar.classList.toggle('active');
+    };
+  </script>
+</body>
+
+</html>

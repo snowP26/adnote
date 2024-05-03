@@ -1,0 +1,108 @@
+
+/* login.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #EED8AF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.login_form {
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logo img {
+    width: 150px; 
+    height: auto; 
+}
+
+.greetings {
+    position: absolute;
+    margin-bottom: 300px; /* Add space between "WELCOME TO" and the rest of the form */
+}
+
+.greetings h2 {
+    top: 1px;
+    font-size: 32px; /* Adjust the font size as desired */
+    color: #333; /* Adjust the font color as desired */
+    margin-bottom: 20px;
+}
+
+.greetings p {
+    /* Style for p element */
+    font-size: 16px; /* Example font size */
+    color: #666; /* Example font color */
+    margin-top: 10px; /* Example margin */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-bottom: 0px;
+    margin-top: 110px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 350px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #a08658;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #9c7312;
+}
+
+.hide-show {
+    margin-top: 10px;
+}
+
+.signup-link {
+    position: absolute;
+    margin-top: 400px;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+.signup-link p1 {
+    font-size: 16px; /* Example font size */
+    color: #666; /* Example font color */
+    margin-right: 10px;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+

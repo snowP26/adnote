@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv=X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width+device-width, initial-scale=1.0">
+        <title>Side Panel</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+    
+        <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <i class="bx bxl-codepen"></i>
+                    <span>ADNOTE</span>
+                </div>
+                <i class = ""
+            </div>
+
+            <div class="user"></div>
+            <ul></ul>
+        </div>
+
+
+    </body>
+</html>
+
+
+
+<!--Modified: 11:49 25/04/2024
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up</title>
+        <link rel="stylesheet" type="text/css" href="/static/signup.css">
+    </head>
+    <body>
+        <div class="logo">
+            <!-- You can replace this with your logo image -->
+            <img src="/static/logo.png" alt="Logo">
+        </div>
+    
+        <form method="post">
+            <h1 class="signup-title">Sign Up</h1>
+            <hr width="100%" size="2">
+            <!-- Include the CSRF token here -->
+            {% csrf_token %}
+            <!-- First Name -->
+            <!--<div class="name-inputs"> -->
+                <div>
+                    <label for="id_first_name">First Name:</label>
+                    <input type="text" name="first_name" id="id_first_name" required>
+                </div>
+                <!-- Last Name -->
+                <div>
+                    <label for="id_last_name">Last Name:</label>
+                    <input type="text" name="last_name" id="id_last_name" required>
+                </div>
+            </div>
+            <!-- Email Address -->
+                    <div>
+                        <label for="id_username">Username:</label>
+                        <input type="username" name="username" id="id_username" required>
+                    </div>
+    
+            <!-- Email Address -->
+            <div>
+                <label for="id_email">Email Address:</label>
+                <input type="email" name="email" id="id_email" required>
+            </div>
+            <!-- Password -->
+            <div>
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" id="id_password1" required>
+            </div>
+            <!-- Re-type Password -->
+            <div>
+                <label for="id_password2">Confirm Password:</label>
+                <input type="password" name="password2" id="id_password2" required>
+            </div>
+            <button type="submit" class="signup-button"><a href="{% url 'login' %}">Sign Up</button>
+        </form>
+    </body>
+    </html-->

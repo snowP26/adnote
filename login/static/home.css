@@ -1,0 +1,70 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style for the dashboard */
+  .dashboard {
+    display: flex;
+  }
+  
+  /* Style for the side panel */
+  .side-panel {
+    width: 150px;
+    height: 876px;;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logo img {
+    width: 150px; 
+    height: auto; 
+}
+  
+  /* Style for the buttons container */
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+  }
+  
+  /* Style for the buttons */
+  .menu-btn,
+  .search-btn,
+  .add-btn,
+  .delete-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex; /* Added to align icon and text */
+    align-items: center; /* Added to vertically center icon and text */
+  }
+  
+  .menu-btn img,
+  .search-btn img,
+  .add-btn img,
+  .delete-btn img {
+    margin-right: 10px; /* Adjust spacing between icon and text */
+  }
+
+  .menu-btn:hover,
+  .search-btn:hover,
+  .add-btn:hover,
+  .delete-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
