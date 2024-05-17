@@ -27,21 +27,36 @@ body {
     height: 100vh;
 }
 
+/* Greetings 
+.greetings {
+    position: absolute;
+    margin-bottom: 300px;
+    text-align: center;
+}
+.greetings h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}*/
+
 /* Form */
 form {
     background-color: #6C8BDB;
     border-radius: 50px;
     margin-bottom: 100px;
-    margin-top: 120px;
+    margin: 120px auto 100px;
     width: 100%;
     max-width: 500px;
-    height: 500px;
+    height: 400px;
     padding: 40px;
+    
 }
 
 /* Form fields */
 div {
-    margin-bottom: 15px;
+    margin: 0 auto;
+    width: 1000px;
 }
 
 label {
@@ -52,7 +67,7 @@ label {
 }
 
 /* Style for the "Sign Up" word */
-.signup-title {
+.login-title {
     font-size: 32px; 
     color: #fff; 
     margin-bottom: 20px; 
@@ -83,7 +98,7 @@ input[type="email"] {
 }
 
 /* Sign Up button */
-.signup-button {
+.login-button {
     width: 120px;
     padding: 10px;
     background-color: #6bff72;
@@ -93,11 +108,12 @@ input[type="email"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
     position: absolute; 
-    bottom: 20px;
+    bottom: 30px;
     right: 20px;
     text-decoration: none;
+    right: 60px;
 }
 
-.signup-button:hover {
+.login-button:hover {
     background-color: #ebff88;
 }

@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About ADNOTE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Dancing+Script">
+    <link rel="stylesheet" href="/static/sidebar.css">
+
+    <style>
+        body{
+            font-family: 'Raleway', sans-serif;
+            color: #333;
+            background-color: #EED8AF;
+        }
+        p {
+            color: #333;
+        }
+        #animated-title {
+            font-family:  cursive;
+            font-size: 72px; 
+            opacity: 0;
+            animation: animateTitle 2s forwards;
+        }
+        @keyframes animateTitle {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .footer a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .w3-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px 20px 20px;
+            width: 100%;
+            margin-bottom: 100px;
+        }     
+        .about-adnote {
+            margin-top: 50px;
+            margin-left: 50px; 
+            margin-right: 50px;            
+            background-color: #FFF2DB; /* Use the brown color with lighter opacity */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            opacity: 0;
+            white-space: pre-wrap;
+        }      
+        .about-adnote span {
+            display: block;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-left: 50px; 
+            margin-right: 50px;
+        }
+        .adnote-title {
+            margin-top: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="w3-content">
+    <div class="adnote-title">
+        <h1><b><span id="animated-title">ADNOTE</span></b></h1>
+    </div>
+
+    <div class="w3-row">
+        <div class="about-adnote" id="about-adnote">
+            <span class="w3-opacity">Associative Digital Note (ADNOTE) is a web-based note-taking system that allows students to collaborate with other users, among other features. By allowing students to cooperate with each other in academics, the integration of information can lead to a more cooperative student body. One of Google’s applications, Google Keep, is a note-taking app with limited features. Though Google Docs is quite popular in terms of creating and collaborating web-based documents, it is essential to have a particular web-based application to assist students when it comes to taking notes. As incorporated in the Google Docs Editors suite, Google Keep is an application with a web-based version that is designed to provide note-taking service to users, however, some users demand for the upgrade of this application due to its several downsides and general lack of features.</span>
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>&copy; 2024 
+        <a href="https://www.facebook.com/">Nicole B. Castillo</a>
+        <a href="https://www.facebook.com/">Jamarcus Jangavril Mariano</a>
+        <a href="https://www.facebook.com/">Almond Nicholas Turiano</a>
+        <a href="https://www.facebook.com/">James Gabriel Verceluz</a>
+    </p>
+</footer>
+
+<script>
+    document.title = "About ADNOTE";
+
+    function typewriter(element, text, delay = 30) {
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, delay);
+            }
+        }
+        type();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const title = document.getElementById('animated-title');
+        const aboutAdnote = document.getElementById('about-adnote');
+        const text = aboutAdnote.querySelector('span').innerText;
+        aboutAdnote.querySelector('span').innerText = '';
+        setTimeout(() => {
+            aboutAdnote.style.opacity = 1;
+            typewriter(aboutAdnote.querySelector('span'), text);
+        }, 3000);
+    });
+
+    </script>
+
+</body>
+</html>

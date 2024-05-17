@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/static/home.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    .main-content-wrapper {
+      background-color: #EED8AF; 
+      padding-top: 50px; 
+    }
+
+    .main-content {
+      text-align: center;
+      width: 80%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .main-content .document-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0px, 0px, 10px, 20px;
+    }
+
+    .main-content .document-title #document_title {
+      width: 60%; 
+      max-width: 500px;
+      height: 47px;
+      padding: 10px;
+      border-radius: 10px;
+      padding-left: 10px;
+      border: 1px solid white;
+    }
+
+    .main-content .document-title input[type="text"]::placeholder {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .main-content button {
+      margin-left: 10px;
+      height: 40px;
+      width: 84px;
+      border-radius: 10px;
+      border: 0px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.62);
+      background-color: rgba(33, 150, 243, 0.38);
+    }
+
+    .main-content button:hover {
+      color: white;
+      background-color: rgba(0, 97, 176, 0.804);
+    }
+
+    .main-content .document-title button {
+      margin-left: 10px;  
+    }
+
+    .main-content .corkboard-container {
+      margin-top: 20px; 
+    }
+
+    .main-content .corkboard {
+      border: 1px solid #FF7EB9;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #FF7EB9;
+      text-align: left;
+      max-width: 500px;
+      margin-top: 70px;
+      margin-bottom: 50px;
+    }
+
+    .main-content .corkboard2 {
+      border: 1px solid #7AFCFF;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #7AFCFF;
+      text-align: left;
+      max-width: 500px;
+      margin-bottom: 50px;
+    }
+    
+    .main-content .corkboard3 {
+      border: 1px solid #FFF740;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #FFF740;
+      text-align: left;
+      max-width: 500px;
+      margin-bottom: 50px;
+    }
+
+    .main-content .corkboard:hover {
+      border: 2px solid white;
+    }
+
+    .main-content .corkboard .deleter{
+        text-align: right;
+    }
+
+    .main-content .corkboard2 .deleter2{
+        text-align: right;
+    }
+
+    .main-content .corkboard3 .deleter3{
+        text-align: right;
+    }
+
+    .confirmation-dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .confirmation-dialog-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .confirmation-dialog button {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .confirmation-dialog button.yes {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .confirmation-dialog button.no {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    #delete_dialog {
+      display: none;
+    }
+    
+  </style>
+</head>
+
+<body>
+  {% include 'sidebar.html' %}  
+  <div class="main-content-wrapper">
+    <div class="main-content">
+      <div class="document-title">
+        <input type="text" id="document_title" name="document_title" placeholder="ARCHIVED NOTES">
+        <button id="restore_button">Restore</button>
+        <button id="delete_button">Delete</button>
+      </div>
+  
+      <div class="corkboard-container">
+        <div class="corkboard" id="corkboard1">
+          <input type="checkbox" class="corkboard-checkbox">
+          <h2>Note 1</h2><p class="deleter">Deleted by: User 1</p>
+        </div>
+        <div class="corkboard" id="corkboard2">
+          <input type="checkbox" class="corkboard-checkbox">
+          <h3>Note 2</h3><p class="deleter">Deleted by: User 2</p> 
+        </div>
+        <div class="corkboard" id="corkboard3">
+          <input type="checkbox" class="corkboard-checkbox">
+          <h4>Note 3</h4><p class="deleter">Deleted by: User 3</p> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="confirmation-dialog" id="delete_dialog">
+    <p>Are you sure you want to delete the selected items?</p>
+    <div class="confirmation-dialog-buttons">
+        <button id="cancel_delete_button">Cancel</button>
+        <button id="confirm_delete_button">Confirm</button>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const corkboardCheckboxes = document.querySelectorAll('.corkboard-checkbox');
+      const deleteButton = document.getElementById('delete_button');
+      const restoreButton = document.getElementById('restore_button');
+      const deleteDialog = document.getElementById('delete_dialog');
+      const cancelDeleteButton = document.getElementById('cancel_delete_button');
+      const confirmDeleteButton = document.getElementById('confirm_delete_button');
+
+      deleteButton.addEventListener('click', function () {
+          deleteDialog.style.display = 'block';
+      });
+
+      cancelDeleteButton.addEventListener('click', function () {
+          deleteDialog.style.display = 'none';
+      });
+
+      confirmDeleteButton.addEventListener('click', function () {
+          corkboardCheckboxes.forEach(checkbox => {
+              if (checkbox.checked) {
+                  checkbox.closest('.corkboard').remove();
+              }
+          });
+          deleteDialog.style.display = 'none';
+      });
+
+      restoreButton.addEventListener('click', function () {
+          const deletedCorkboards = document.querySelectorAll('.corkboard.deleted');
+          deletedCorkboards.forEach((corkboard, index) => {
+              setTimeout(() => {
+                  corkboard.classList.remove('deleted');
+              }, (index + 1) * 500); 
+          });
+      });
+    });
+  </script>
+</body>
+</html>

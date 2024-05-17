@@ -1,21 +1,4 @@
 
-/* login.css */
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    background-color: #EED8AF;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.login_form {
-    text-align: center;
-}
-
 .logo {
     position: absolute;
     top: 20px;
@@ -27,82 +10,113 @@ body {
     height: auto; 
 }
 
+body, form {
+    margin: 0;
+    padding: 0;
+    position: relative; 
+}
+
+/* Container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EED8AF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .greetings {
     position: absolute;
-    margin-bottom: 300px; /* Add space between "WELCOME TO" and the rest of the form */
+    margin-bottom: 300px; 
 }
 
 .greetings h2 {
     top: 1px;
-    font-size: 32px; /* Adjust the font size as desired */
-    color: #333; /* Adjust the font color as desired */
+    font-size: 32px; 
+    color: #333; 
     margin-bottom: 20px;
 }
 
 .greetings p {
-    /* Style for p element */
-    font-size: 16px; /* Example font size */
-    color: #666; /* Example font color */
-    margin-top: 10px; /* Example margin */
+    font-size: 16px; 
+    color: #666; 
+    margin-top: 10px; 
     text-align: center;
     margin-bottom: 10px;
 }
 
+/* Form */
 form {
-    margin-bottom: 0px;
-    margin-top: 110px;
+    background-color: #6C8BDB;
+    border-radius: 50px;
+    margin-bottom: 100px;
+    margin-top: 120px;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    padding: 40px;
 }
 
-form label {
+/* Form fields */
+div {
+    margin-bottom: 15px;
+}
+
+label {
     display: block;
-    margin-bottom: 10px;
+    font-weight: bold;
+    margin-bottom: 11px;
+    color: #fff;
 }
 
-input[type="email"],
-input[type="password"] {
-    width: 350px;
+/* Style for the "Sign Up" word */
+.signup-title {
+    font-size: 32px; 
+    color: #fff; 
+    margin-bottom: 20px; 
+}
+
+/* Style for the container of name inputs */
+.name-inputs {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+/* Style for each name input container */
+.name-inputs > div {
+    flex: 1; 
+    margin-right: 10px; 
+}
+
+/* Style for input fields */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: calc(100% - 22px); 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
 }
 
-button {
-    width: 100%;
+/* Sign Up button */
+.signup-button {
+    width: 120px;
     padding: 10px;
-    background-color: #a08658;
+    background-color: #6bff72;
     color: #FFF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 15px;
-}
-
-button:hover {
-    background-color: #9c7312;
-}
-
-.hide-show {
-    margin-top: 10px;
-}
-
-.signup-link {
-    position: absolute;
-    margin-top: 400px;
-}
-
-.signup-link a {
-    color: #007bff;
+    position: absolute; 
+    bottom: 20px;
+    right: 20px;
     text-decoration: none;
 }
-.signup-link p1 {
-    font-size: 16px; /* Example font size */
-    color: #666; /* Example font color */
-    margin-right: 10px;
+
+.signup-button:hover {
+    background-color: #ebff88;
 }
-
-.signup-link a:hover {
-    text-decoration: underline;
-}
-
-

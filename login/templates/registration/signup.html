@@ -15,16 +15,12 @@
     <form method="post">
         <h1 class="signup-title">Sign Up</h1>
         <hr width="100%" size="2">
-        <!-- Include the CSRF token here -->
         {% csrf_token %}
-
-        <!-- First Name -->
         <div class="name-inputs">
             <div>
                 <label for="id_first_name">First Name:</label>
                 <input type="text" name="first_name" id="id_first_name" required>
             </div>
-            <!-- Last Name -->
             <div>
                 <label for="id_last_name">Last Name:</label>
                 <input type="text" name="last_name" id="id_last_name" required>

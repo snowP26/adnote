@@ -1,77 +1,301 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Side Panel</title>
-  <link rel="stylesheet" href="/static/hdraft.css">
+  <title>Home</title>
+  <link rel="stylesheet" href="/static/home.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style>
+    /* Global styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+    }
+
+    /* Main content wrapper */
+    .main-content-wrapper {
+      background-color: #EED8AF; 
+      padding-top: 50px; 
+    }
+
+    .main-content {
+      text-align: center;
+      width: 80%;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative; /* Added */
+    }
+
+    /* Document title */
+    .main-content .document-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 10px 0;
+    }
+
+    .main-content .document-title #document_title {
+      width: 60%; 
+      max-width: 500px;
+      height: 47px;
+      padding: 10px;
+      border-radius: 10px;
+      padding-left: 10px;
+      border: 1px solid white;
+    }
+
+    .main-content .document-title input[type="text"]::placeholder {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    /* Create button */
+    .main-content button {
+      margin-left: 10px;
+      height: 40px;
+      width: 84px;
+      border-radius: 10px;
+      border: 0px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.62);
+      background-color: rgba(33, 150, 243, 0.38);
+    }
+
+    .main-content button:hover {
+      color: white;
+      background-color: rgba(0, 97, 176, 0.804);
+    }
+
+    /* Corkboard container */
+    .main-content .corkboard-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px; 
+    }
+
+    /* Corkboard */
+    .main-content .corkboard {
+      border: 1px solid #7AFCFF;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #7AFCFF;
+      text-align: center;
+      width: 300px; /* Adjust the width */
+      height: auto; /* Remove fixed height */
+      min-height: 300px; /* Ensure a minimum height */
+      position: relative;
+      overflow: hidden; /* Prevent overflow from Quill editor */
+    }
+    .main-content .corkboard:hover {
+      border: 2px solid white;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .quill-toolbar {
+      display: inline-block; /* Allow the toolbar to wrap if it exceeds its container width */
+      white-space: nowrap; /* Prevent line breaks */
+    }
+
+    /* Quill toolbar container */
+    .quill-toolbar-container {
+      position: absolute;
+      bottom: 10px; /* Adjust position */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Center horizontally */
+    }
+
+    /* Quill toolbar */
+    .quill-toolbar-container {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 90%; 
+      overflow-x: hidden; 
+    }
+
+    .quill-toolbar button {
+      margin-right: 5px;
+      background-color: #eee;
+      border: none;
+      border-radius: 3px;
+      padding: 3px 8px; 
+      cursor: pointer;
+    }
+
+    .quill-toolbar button:hover {
+      background-color: #ddd;
+    }
+
+    /* Quill editor */
+    .editor {
+      border: none !important;
+      height: calc(100% - 40px); 
+      padding: 10px 0; 
+      overflow-y: auto; 
+    }
+
+    /* Maximize corkboard */
+.corkboard.maximize {
+  width: 500px; /* Adjust the width */
+  height: 500px; /* Adjust the height */
+}
+
+#dialog-message1 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#dialog-box1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+  </style>
 </head>
-
 <body>
-  <div class="sidebar">
-    <div class="top">
-      <div class="logo">
-        <img src="/static/dashboardIcons/logosvg.svg" class="logosvg">
-      </div>
-      <i class="bx bx-menu" id="btn"></i>
-    </div>
-    <div class="user">
-      <img src="/static/dashboardIcons/cat.svg" alt="me" class="catsu">
-      <div>
-        <p class="bold">AGK</p>
-        <p>Founder</p>
-      </div>
-    </div>
-    <ul>
-      <li>
-        <a href="#">
-          <i class='bx bxs-dashboard' style='color:#ffffff'></i>
-          <span class="nav-item">Board</span>
-        </a>
-        <span class="tooltip">Board</span>
-      </li>
+  <!-- Sidebar -->
+  {% include 'sidebar.html' %}
 
-      <li>
-        <a href="#">
-          <i class='bx bx-detail'></i>
-          <span class="nav-item">Document</span>
-        </a>
-        <span class="tooltip">Document</span>
-      </li>
 
-      <li>
-        <a href="#">
-          <i class='bx bx-trash'></i>
-          <span class="nav-item">Archive</span>
-        </a>
-        <span class="tooltip">Archive</span>
-      </li>
-    </ul>
-    <div class="nav-item">
-      <a href="{% url 'logout' %}">
-        <i class='bx bx-log-out' style='color:#ffffff'></i>
-        <span class="nav-item">Logout</span>
-      </a>
+<!-- Dialog 1 -->
+<div id="dialog-message1">
+  <div id="dialog-box1">
+    <span id="close-button" onclick="closeDialog('dialog-message1')">X</span> <!-- Corrected onclick function call -->
+    <h1>Boards</h1>
+    {% for board in user_boards %}
+      <div>{{ board.title }}</div>
+    {% empty %}
+      <p>Oh no, there is no board yet. Explore!</p>
+    {% endfor %}
+  </div>
+</div>
+
+  <div class="main-content-wrapper">
+    <div class="main-content">
+      <div class="document-title">
+        <input type="text" id="document_title" name="document_title" placeholder="BOARD TITLE">
+        <button id="create_button">Create</button>
+      </div>
+
+      <div class="corkboard-container" id="corkboard-container"></div>
     </div>
   </div>
 
-  <div class="main-content">
-    <div class="container">
-      <h1>Hello {{ request.user.first_name }}!</h1>
-      <h1>This is team AGK!</h1>
-    </div>
-  </div>
+  <div id="quill-toolbar" class="quill-toolbar" style="display: none;"></div>
 
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
+    document.addEventListener('DOMContentLoaded', function() {
 
-    btn.onclick = function () {
-      sidebar.classList.toggle('active');
-    };
+      const isLoggedIn = true;
+
+      if (isLoggedIn) {
+        openDialog();
+      }
+
+      const corkboardContainer = document.getElementById('corkboard-container');
+      const createButton = document.getElementById('create_button');
+      const documentTitleInput = document.getElementById('document_title');
+      let boardCounter = 0;
+    
+      createButton.addEventListener('click', function() {
+        const title = documentTitleInput.value.trim();
+        if (title) {
+          addBoard(title);
+          documentTitleInput.value = '';
+        }
+      });
+    
+      function addBoard(title) {
+        boardCounter++;
+        const board = document.createElement('div');
+        board.className = 'corkboard';
+        
+        const randomColor = getRandomColor();
+        board.style.backgroundColor = randomColor;
+        
+        board.innerHTML = `
+          <h2>${title}</h2>
+          <div id="editor-${boardCounter}" class="editor"></div>
+          <span class="delete-btn" onclick="deleteBoard(this)">X</span>
+        `;
+        corkboardContainer.appendChild(board);
+      
+        const quill = new Quill(`#editor-${boardCounter}`, {
+          theme: 'snow'
+        });
+      
+        board.addEventListener('click', function(event) {
+          if (event.target === this) {
+            this.classList.toggle('maximize');
+            quill.update(); 
+          }
+        });
+      }
+
+      const predefinedColors = ['#7AFCFF', '#FF65A3', '#FFF740'];
+
+function getRandomColor() {
+  const randomIndex = Math.floor(Math.random() * predefinedColors.length);
+  return predefinedColors[randomIndex];
+}
+      
+      window.deleteBoard = function(button) {
+        const board = button.parentElement;
+        corkboardContainer.removeChild(board);
+      }
+    
+      document.getElementById('quill-toolbar').style.display = 'block';
+    });
+
+    function openDialog() {
+      document.getElementById("dialog-message1").style.display = "block";
+    }
+  
+    function closeDialog(dialogId) {
+      document.getElementById(dialogId).style.display = "none";      
+    }
+
   </script>
+  <script>
+    function redirectToAbout() {
+        window.location.href = "{% url 'about' %}";
+    }
+</script>
 </body>
-
 </html>

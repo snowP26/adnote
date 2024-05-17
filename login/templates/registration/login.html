@@ -4,36 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/static/login.css">
+    <link rel="stylesheet" type="text/css" href="/static/log.css">
 </head>
 <body>
 
     <div class="logo">
-        <!-- You can replace this with your logo image -->
         <img src="/static/logo.png" alt="Logo">
     </div>
 
-        <div class="greetings">
+    <div class="container">
+
+        <!--div class="greetings">
             <h2>Welcome to Adnote</h2>
             <p>Log in to create Notes</p>
-        </div>
-
-    <div class="container">
+        </div-->
 
         <div class="form">
             <form method="post">
+                <h1 class="login-title"> Log In</h1>
+                <hr width="100%" size = "2">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Login</button>
+                <button type="submit" class="login-button">Log In</button>
+                
+                <div class="signup-link">
+                    <p>New here? <a href="{% url 'signup' %}">Sign Up</a></p>
+                </div>
             </form>
         </div>
 
     </div>
 
-    <div class="signup-link">
-            <p1>New here?</p1>
-            <p2><a href="{% url 'signup' %}">Sign Up</a></p2>
-    </div>
-        
 </body>
 </html>

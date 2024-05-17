@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+}
+
+.sidebar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100vh;
+    z-index: 99;
+    background-color: #12171e;
+    padding: .4rem .8rem;
+    transition: all 0.5s ease;
+    bottom: 0;
+}
+
+.sidebar.active ~ .main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: #fff;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.9rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar.active #btn {
+    left: 90%;
+}
+
+.sidebar .top .logo {
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style:none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #F3B743;
+    color: #12171e;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(170, 99, 99, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.top .logo img {
+    width: 150px;
+    height: auto;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.user p {
+    color: #fff;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+body {
+    background-color: #EED8AF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+}
+
+
+.share {
+    background-color: #6C8BDB;
+    position: absolute;
+    top: 50px;
+    margin-bottom: 1000px;
+    margin-left: 1000px;
+    justify-content: center;
+    transform: translateX(-50%);
+    padding: 20px;
+    border-radius: .6rem;
+    width: 110px;
+    height: auto;
+}
+
+.delete {
+    background-color: #6C8BDB;
+    position: absolute;
+    top: 50px;
+    margin-bottom: 1000px;
+    margin-left: 1200px;
+    justify-content: center;
+    transform: translateX(-50%);
+    padding: 20px;
+    border-radius: .6rem;
+    width: 110px;
+    height: auto;
+}
+
+.title-text{
+    font-size:16px;
+    padding: 10px;
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    border-color: transparent;
+}
+
+.share .share-text{
+    font-size:16px;
+    padding: 7px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.delete .delete-text{
+    font-size:16px;
+    padding: 7px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.toolbar {
+    position: absolute;
+    top: 150px;
+    margin-bottom: 1000px;
+    margin-left: 800px;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: .6rem;
+    width: auto;
+    display: flex;
+}
+
+.toolbar .icon1,
+.toolbar .icon2,
+.toolbar .icon3,
+.toolbar .icon4,
+.toolbar .icon5,
+.toolbar .icon6,
+.toolbar .icon7,
+.toolbar .icon8,
+.toolbar .icon9,
+.toolbar .icon10,
+.toolbar .icon11,
+.toolbar .icon12,
+.toolbar .icon13,
+.toolbar .icon14,
+.toolbar .icon15,
+.toolbar .icon16 {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.page {
+    position: absolute;
+    top: 250px;
+    margin-bottom: 1000px;
+    margin-left: 800px;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: .6rem;
+    width: 210mm;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    line-height: 1.5;
+    outline: none;
+    border: none;
+    border-color: transparent
+}
+
+.editingTools {
+    margin-bottom: 10px;
+}
+
+.editingTools button {
+    margin-right: 10px;
+}
+
+.docs {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.userTitle {
+    font-size:16px;
+    padding: 10px;
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.title {
+    position: absolute;
+    top: 50px;
+    margin-bottom: 1000px;
+    margin-left: 600px;;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1px;
+    border-radius: .6rem;
+    align-items: left;
+    width: 600px;
+    height: auto;
+    border: none;
+    border-color: transparent;
+}
+
+#userTitleInput {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-color: transparent;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.confirmation-text {
+    position: absolute;
+    top: 50px;
+    left: 50%; 
+    transform: translateX(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dialog-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; 
+}
+
+.dialog-box p {
+    margin-bottom: 10px;
+}
+
+.dialog-box button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.dialog-box button:hover {
+    background-color: #45a049;
+}
+
+#shareDialog {
+    border: none;}
+
+
+#deleteDialog {
+    border: none;
+}
+
+/* CSS styles for font dialog */
+.fontDialog {
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 10px;
+}
+
+.fontDialog.show {
+    display: block;
+}
+
+.fontDialogContent {
+    padding: 10px;
+}
+
+.toolbar #fontSizeButton {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toolbar #fontSizeButton:hover {
+    background-color: #0056b3;
+}
+
+/* Font Style Button Styling */
+.toolbar #fontStyleButton {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toolbar #fontStyleButton:hover {
+    background-color: #218838;
+}
+
+/* FOr the bullets NIX!*/
+.editable-content ul,
+.editable-content ol {
+    margin-left: 20px;
+}
+
+.editable-content ul li,
+.editable-content ol li {
+    list-style: disc;
+
+}
+
+#uploadedImageContainer {
+            display: none;
+        }
+        #uploadedImage {
+            max-width: 300px; 
+            max-height: 300px; 
+        }
+        #fileInput {
+            display: none;
+        }
+        #imageIcon {
+            max-width: 300px;
+        }
+
+.drawing-container {
+    padding: 20px; 
+}
+
+.editable-drawing-content {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 700px;
+    height: 500px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+/* Canvas */
+.canvas-page {
+    border: 1px solid rgb(220, 199, 199);
+    width: 800px;
+    height: 600px;
+    display: block;
+    place-items: center;
+}
+
+.drawing-tool {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.drawing-toolbar {
+    margin-top: 10px;
+    margin-bottom: 20px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.drawing-toolbar .icon {
+    cursor: pointer;
+    margin-right: 10px; 
+}
+
+.drawing-toolbar input[type="color"] {
+    margin-right: 10px;
+}
+
+.drawing-toolbar select {
+    margin-right: 10px;
+}
+
